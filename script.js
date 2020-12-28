@@ -95,3 +95,11 @@ vehicle2 = new Vehicle();
 
 console.dir(vehicle1);
 console.log(vehicle1.show2 === vehicle2.show2);
+
+function globalFunc() {
+  console.log("Hi, I'm a globalFunc");
+}
+
+const f = new globalFunc();
+console.log(typeof globalFunc);
+console.log(typeof f);

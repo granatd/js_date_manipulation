@@ -24,3 +24,7 @@ let person = {
 for (let sport of person) {
   console.log(sport);
 }
+
+const [sport1, sport2] = person;
+console.log(`Sport1: ${sport1}`);
+console.log(`Sport2: ${sport2}`);

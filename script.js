@@ -1,30 +1,37 @@
-let sym = Symbol("hidden");
-
-let person = {
-  name: "Dnaiel",
-  sports: ["skiing", "running", "cycling", "jumping"],
-  [Symbol.iterator]: function () {
-    let i = 0;
-    const sports = this.sports;
-
-    return {
-      next: function () {
-        let value = sports[i];
-        i++;
-
-        return {
-          done: i > sports.length ? true : false,
-          value: value,
-        };
-      },
-    };
-  },
-};
-
-for (let sport of person) {
-  console.log(sport);
+class Person {
+  name = "Daniel";
 }
 
-const [sport1, sport2] = person;
-console.log(`Sport1: ${sport1}`);
-console.log(`Sport2: ${sport2}`);
+class Boss extends Person {
+  name = "Anna";
+}
+
+const person = new Person();
+const boss = new Boss();
+
+// const b = {
+//   name: "Daniel",
+// };
+
+const p = {
+  name: "Anna",
+};
+
+// Derive from b obj
+// Object.setPrototypeOf(p, b);
+// Object.setPrototypeOf(boss, person);
+
+function C() {
+  this.name = "Anna";
+}
+// Create Person instance from C constructor
+C.prototype = Person.prototype;
+const c = new C.prototype.constructor();
+
+console.dir(person);
+console.dir(boss);
+
+// console.dir(b);
+// console.dir(p);
+
+console.dir(c);

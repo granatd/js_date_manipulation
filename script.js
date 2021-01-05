@@ -1,11 +1,19 @@
-const arr = [10, 12, 16];
+Object.creat = function (parent) {
+  function Tmp() {
+    this.__proto__.constructor.call(this); // invoke parent constructor on new Tmp obj
+  }
+  Tmp.prototype = parent;
+  return new Tmp();
+};
 
-const newArr = Array.from(arr, (val) => val * 2);
-const newArr2 = arr.map((val) => val * 2);
+const Parent = function () {
+  this.name = "Parent";
+};
 
-console.log(newArr);
-console.log(newArr2);
+Parent.prototype.greet = function () {
+  console.log("hello from Parent");
+};
 
-for (let i of arr) {
-  console.log(i);
-}
+const child = Object.creat(Parent.prototype);
+
+console.dir(child);

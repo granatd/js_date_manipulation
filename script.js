@@ -1,37 +1,11 @@
-class Person {
-  name = "Daniel";
+const arr = [10, 12, 16];
+
+const newArr = Array.from(arr, (val) => val * 2);
+const newArr2 = arr.map((val) => val * 2);
+
+console.log(newArr);
+console.log(newArr2);
+
+for (let i of arr) {
+  console.log(i);
 }
-
-class Boss extends Person {
-  name = "Anna";
-}
-
-const person = new Person();
-const boss = new Boss();
-
-// const b = {
-//   name: "Daniel",
-// };
-
-const p = {
-  name: "Anna",
-};
-
-// Derive from b obj
-// Object.setPrototypeOf(p, b);
-// Object.setPrototypeOf(boss, person);
-
-function C() {
-  this.name = "Anna";
-}
-// Create Person instance from C constructor
-C.prototype = Person.prototype;
-const c = new C.prototype.constructor();
-
-console.dir(person);
-console.dir(boss);
-
-// console.dir(b);
-// console.dir(p);
-
-console.dir(c);

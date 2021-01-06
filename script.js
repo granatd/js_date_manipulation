@@ -1,30 +1,20 @@
-const Man = function () {
-  this.sex = "man";
+function Animal(name) {
+  this.name = name;
+}
+
+Animal.prototype.speak = function () {
+  console.log(this.name + " makes a noise.");
 };
 
-function Dan() {
-  // Dan's constructor
-  Man.call(this); // Man's constructor
-  this.name = "Daniel";
+class Dog extends Animal {
+  type = "Dog";
+
+  speak() {
+    console.log(this.name + " barks.");
+  }
 }
 
-Dan.prototype = Object.create(Man.prototype);
-Dan.prototype.constructor = Dan; // added by default but now was overriden by reassigning Dan.prototype
+let d = new Dog("Mitzie");
+d.speak(); // Mitzie barks
 
-console.log("Functions based objects");
-console.dir(Man);
-console.dir(Dan);
-console.dir(new Dan());
-
-class ManClass {
-  sex = "man";
-}
-
-class DanClass extends ManClass {
-  name = "Daniel";
-}
-
-console.log("Classes based objects");
-console.dir(ManClass);
-console.dir(DanClass);
-console.dir(new DanClass());
+console.dir(d);

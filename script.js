@@ -1,8 +1,8 @@
 Object.creat = function (parent) {
   function Tmp() {
-    this.__proto__.constructor.call(this); // invoke parent constructor on new Tmp obj
+    parent.call(this); // parent construction
   }
-  Tmp.prototype = parent;
+  Tmp.prototype = parent.prototype;
   return new Tmp();
 };
 
@@ -14,6 +14,6 @@ Parent.prototype.greet = function () {
   console.log("hello from Parent");
 };
 
-const child = Object.creat(Parent.prototype);
+const child = Object.creat(Parent);
 
 console.dir(child);

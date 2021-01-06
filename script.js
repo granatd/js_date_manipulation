@@ -1,19 +1,16 @@
-Object.creat = function (parent) {
-  function Tmp() {
-    parent.call(this); // parent construction
-  }
-  Tmp.prototype = parent.prototype;
-  return new Tmp();
+const Human = function () {
+  this.sex = "man";
 };
 
-const Parent = function () {
-  this.name = "Parent";
-};
+function Dan() {
+  this.name = "Daniel";
+}
 
-Parent.prototype.greet = function () {
-  console.log("hello from Parent");
-};
+Dan.prototype = Human.prototype;
 
-const child = Object.creat(Parent);
+const dan = new Dan();
 
-console.dir(child);
+console.dir(Human);
+console.dir(Dan);
+
+console.dir(dan);

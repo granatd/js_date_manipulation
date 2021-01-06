@@ -1,20 +1,19 @@
-function Animal(name) {
-  this.name = name;
-}
-
-Animal.prototype.speak = function () {
-  console.log(this.name + " makes a noise.");
+var Animal = {
+  legs: "two",
+  speak() {
+    console.log(this.name + " makes a noise.");
+  },
 };
 
-class Dog extends Animal {
-  type = "Dog";
-
-  speak() {
-    console.log(this.name + " barks.");
+class Dog {
+  constructor(name) {
+    this.name = name;
   }
 }
 
-let d = new Dog("Mitzie");
-d.speak(); // Mitzie barks
+Dog.prototype.type = "dog";
+Object.setPrototypeOf(Dog.prototype, Animal); // If you do not do this you will get a TypeError when you invoke speak
 
+let d = new Dog("Mitzie");
+d.speak(); //Mitzie makes a noise.
 console.dir(d);

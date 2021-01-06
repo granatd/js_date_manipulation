@@ -12,7 +12,8 @@ class Dog {
 }
 
 Dog.prototype.type = "dog";
-Object.setPrototypeOf(Dog.prototype, Animal); // If you do not do this you will get a TypeError when you invoke speak
+Dog.prototype.__proto__ = Animal;
+// Object.setPrototypeOf(Dog.prototype, Animal); // If you do not do this you will get a TypeError when you invoke speak
 
 let d = new Dog("Mitzie");
 d.speak(); //Mitzie makes a noise.
